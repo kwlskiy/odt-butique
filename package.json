@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "node index"
+    "start": "node index",
+    "build": "webpack --config=webpack.config.js"
   },
   "author": "lijuan",
   "license": "MIT",
@@ -39,11 +40,11 @@
     "webpack-hot-middleware": "^2.15.0"
   },
   "dependencies": {
+    "@heroku/buildpack-registry": "^1.0.1",
     "axios": "^0.27.2",
     "connect-history-api-fallback": "^1.6.0",
     "mongoose": "^5.13.14",
     "qs": "^6.4.0",
     "wechat": "^2.1.0"
   }
-  
 }
