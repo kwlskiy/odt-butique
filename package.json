@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "heroku-prebuild": "npm i",
     "dev": "nodemon ./src/server/index.js",
     "start": "node ./src/server/index"
   },
