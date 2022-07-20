@@ -12,6 +12,15 @@
   "author": "lijuan",
   "license": "MIT",
   "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "@heroku/buildpack-registry": "^1.0.1",
+    "axios": "^0.27.2",
+    "connect-history-api-fallback": "^1.6.0",
+    "mongoose": "^5.13.14",
+    "qs": "^6.4.0",
+    "wechat": "^2.1.0",
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
     "babel-plugin-transform-runtime": "^6.22.0",
@@ -33,20 +42,11 @@
     "file-loader": "^0.9.0",
     "jade": "^1.11.0",
     "morgan": "^1.7.0",
-    "nodemon": "^1.11.0",
     "serve-favicon": "^2.3.2",
     "url-loader": "^0.5.7",
     "webpack": "^1.14.0",
     "webpack-dev-middleware": "^1.9.0",
     "webpack-hot-middleware": "^2.15.0"
-  },
-  "dependencies": {
-    "@heroku/buildpack-registry": "^1.0.1",
-    "axios": "^0.27.2",
-    "connect-history-api-fallback": "^1.6.0",
-    "mongoose": "^5.13.14",
-    "qs": "^6.4.0",
-    "wechat": "^2.1.0"
   },
   "engines" : {
     "npm" : "8.1.4",
