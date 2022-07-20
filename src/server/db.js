@@ -1,15 +1,14 @@
+import config from './config/index.js';
+import mongoose from 'mongoose';
 
-import config from './config/index';
-const mongoose = require('mongoose')
 mongoose.connect(config.url, {
-	useUnifiedTopology: true,
-	useNewUrlParser: true,
-}).then(() => {
-	console.log('mongoose连接成功了')
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+}).then((res) => {
+  console.log('mongoose连接成功了');
 }).catch((err) => {
-	console.log('error！')
-	console.log(err)
-})
-const db = mongoose.connection;
+  console.log('error!');
+  console.log(err);
+});
 
-export default db
+export default mongoose.connection;

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	port: 27017,
 	// url: 'mongodb://localhost:27017/bossyuan',
 	// cluster0-shard-00-00.nqyk6.mongodb.net:27017
@@ -12,4 +12,4 @@ module.exports = {
 		    maxAge:   365 * 24 * 60 * 60 * 1000,
 		}
 	}
-}
+};

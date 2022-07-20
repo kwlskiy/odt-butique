@@ -1,8 +1,9 @@
 import express from 'express'
 import mongoose from 'mongoose'
-const axios = require("axios");
-import ProductsNew from '../modules/productNew'
+import ProductsNew from '../modules/productNew.js'
 
+
+import axios from 'axios';
 
 const router = express.Router()
 
@@ -128,7 +129,7 @@ router.post('/create', async (req, res, next) => {
 		"brand": "KANGOL",
 		"image":["wh2022006_1.jpg","wh2022006_2.jpg"]
 
-	
+
 	},
 
 	{
@@ -1324,7 +1325,7 @@ router.post('/create', async (req, res, next) => {
 		"brand": "CANADA GOOSE",
 		"image": ["wc2022029_1.jpg", "wc2022029_2.jpg", "wc2022029_3.jpg", "wc2022029_4.jpg"]
 
-	},	
+	},
 	{
 		"name": "Junction 750 Fill Power Down Packable Parka",
 		"item_number": "wc2022033",
@@ -1366,7 +1367,7 @@ router.post('/create', async (req, res, next) => {
 		"brand": "CANADA GOOSE",
 		"image": ["mc2022037_1.jpg", "mc2022037_2.jpg", "mc2022037_3.jpg", "mc2022037_4.jpg"]
 
-	},	
+	},
 	{
 		"name": "Chilliwack 625 Fill Power Down Hooded Bomber Jacket",
 		"item_number": "mc2022042",
@@ -1388,14 +1389,14 @@ router.post('/create', async (req, res, next) => {
 		"image": ["mc2022042_1.jpg", "mc2022042_2.jpg", "mc2022042_3.jpg", "mc2022042_4.jpg"]
 
 	}
-	
+
 ];
 
  await ProductsNew.insertMany(productItemNew)
 	res.json({
 		status: 200
 	})
-	
+
 })
 
 router.post('/delete', (req, res, next) => {
@@ -1436,7 +1437,7 @@ router.post('/queryLoaction', function(req, res, next) {
 		method: 'GET',
 		url: 'http://api.openweathermap.org/geo/1.0/reverse?lat=' + data.latitude +'&lon=' + data.longitude +'&limit=1&appid=eb00768af5d588e6a02de34686148288&country=US'
 	};
-	
+
 
 	axios.request(options).then(function(response) {
 		//console.log(response.data);
@@ -1445,7 +1446,7 @@ router.post('/queryLoaction', function(req, res, next) {
 		//console.error(error);
 		res.json(error)
 	});
-	
+
 });
 
 
@@ -1456,7 +1457,7 @@ router.post('/queryWeather', function(req, res, next) {
 		method: 'GET',
 		url: 'http://api.openweathermap.org/geo/1.0/direct?q='+data.name +'&limit=1&appid=eb00768af5d588e6a02de34686148288'
 	};
-	
+
 
 	axios.request(options).then(function(response) {
 		console.log('------',response.data);
@@ -1465,10 +1466,10 @@ router.post('/queryWeather', function(req, res, next) {
 		//console.error(error);
 		res.json(error)
 	});
-	
+
 });
 
-// catchTemp 8 days forcast 
+// catchTemp 8 days forcast
 
 router.post('/queryProducts', function(req, res, next) {
 	let data = req.body
@@ -1489,7 +1490,7 @@ router.post('/queryProducts', function(req, res, next) {
 		method: 'GET',
 		url: 'http://127.0.0.1:5050/api/productNewApi/queryProducts'
 	};
-	
+
 
 	axios.request(options).then(function(response) {
 		console.log('------',response.data);
@@ -1498,7 +1499,7 @@ router.post('/queryProducts', function(req, res, next) {
 		//console.error(error);
 		res.json(error)
 	});
-	
+
 });
 
 
@@ -1506,9 +1507,9 @@ router.post('/edit', (req, res, next) => {
 	// console.log("===============")
 	// console.log(req.body)
 	let productNew = {
-		// update result 
+		// update result
 		$set: req.body
-		
+
 	}
 	console.log(req.body)
 	// let newStudent = [{

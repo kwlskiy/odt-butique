@@ -1,17 +1,18 @@
 import express from 'express'
 import mongoose from 'mongoose'
-const axios = require("axios");
-import Products from '../modules/products'
+import Products from '../modules/products.js'
 
+
+import axios from 'axios';
 
 const router = express.Router()
 
 
 router.post('/create', async (req, res, next) => {
 	const product = await Products.create(req.body);
-	
+
 	res.status(201).json({product})
-	
+
 })
 
 router.post('/delete', (req, res, next) => {
@@ -44,7 +45,7 @@ router.post('/queryLoaction', function(req, res, next) {
 		method: 'GET',
 		url: 'http://api.openweathermap.org/geo/1.0/reverse?lat=' + data.latitude +'&lon=' + data.longitude +'&limit=1&appid=eb00768af5d588e6a02de34686148288&country=US'
 	};
-	
+
 
 	axios.request(options).then(function(response) {
 		//console.log(response.data);
@@ -53,9 +54,9 @@ router.post('/queryLoaction', function(req, res, next) {
 		//console.error(error);
 		res.json(error)
 	});
-	
+
 });
-// update part of the database 
+// update part of the database
 router.patch('/:productId', async (req, res)=> {
 	const { productId} = req.params;
 	console.log({productId}, req.body)
@@ -72,7 +73,7 @@ router.post('/queryWeather', function(req, res, next) {
 		method: 'GET',
 		url: 'http://api.openweathermap.org/geo/1.0/direct?q='+data.name +'&limit=1&appid=eb00768af5d588e6a02de34686148288'
 	};
-	
+
 
 	axios.request(options).then(function(response) {
 		console.log('------',response.data);
@@ -81,10 +82,10 @@ router.post('/queryWeather', function(req, res, next) {
 		//console.error(error);
 		res.json(error)
 	});
-	
+
 });
 
-// catchTemp 8 days forcast 
+// catchTemp 8 days forcast
 
 router.post('/queryProducts', function(req, res, next) {
 	let data = req.body
@@ -105,7 +106,7 @@ router.post('/queryProducts', function(req, res, next) {
 		method: 'GET',
 		url: 'http://127.0.0.1:3000/api/productsApi/queryProducts'
 	};
-	
+
 
 	axios.request(options).then(function(response) {
 		console.log('------',response.data);
@@ -114,7 +115,7 @@ router.post('/queryProducts', function(req, res, next) {
 		//console.error(error);
 		res.json(error)
 	});
-	
+
 });
 
 
@@ -122,9 +123,9 @@ router.post('/edit', (req, res, next) => {
 	// console.log("===============")
 	// console.log(req.body)
 	let products = {
-		// update result 
+		// update result
 		$set: req.body
-		
+
 	}
 	console.log(req.body)
 	// let newStudent = [{
@@ -148,7 +149,7 @@ router.post('/edit', (req, res, next) => {
 	})
 })
 
-// support header inputs to find products and brands 
+// support header inputs to find products and brands
 
 // router.get('/brands', function(req, res, next) {
 //     let productIBrands = req.body

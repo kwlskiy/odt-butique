@@ -1,8 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
-const axios = require("axios");
-import CityName from '../modules/cityName'
-
+import CityName from '../modules/cityName.js'
+import axios from 'axios';
 
 const router = express.Router()
 
@@ -277,7 +276,7 @@ router.post('/create', (req, res, next) => {
       {"city": "Azle", "state": "TX"},
       {"city": "Aztec", "state": "NM"},
       {"city": "Azusa", "state": "CA"},
-      
+
     {"city": "Babylon", "state": "NY"},
     {"city": "Babylon", "state": "NY"},
     {"city": "Back Mountain", "state": "PA"},
@@ -713,7 +712,7 @@ router.post('/create', (req, res, next) => {
     {"city": "Butte-Silver Bow", "state": "MT"},
     {"city": "Buxton", "state": "ME"},
     {"city": "Byram", "state": "MS"},
-      
+
     {"city": "Cabot", "state": "AR"},
     {"city": "Cadillac", "state": "MI"},
     {"city": "Cahokia", "state": "IL"},
@@ -1225,7 +1224,7 @@ router.post('/create', (req, res, next) => {
     {"city": "Cypress", "state": "CA"},
     {"city": "Cypress Gardens", "state": "FL	"},
     {"city": "Cypress Lake", "state": "FL	"},
-      
+
     {"city": "D’Iberville", "state": "MS"},
     {"city": "Dade City", "state": "FL	"},
     {"city": "Dale City", "state": "VA"},
@@ -5998,7 +5997,7 @@ router.post('/create', (req, res, next) => {
     {"city": "Zionsville", "state": "IN"},
     {"city": "Zuni Pueblo","state": "NM"}
       ]
-      
+
     cities.forEach(element => {
 		    CityName.create(element, (err) => {
 		    	if (err) return console.log(err)
@@ -6008,7 +6007,7 @@ router.post('/create', (req, res, next) => {
 	res.json({
 		status: 200
 	})
-	
+
 })
 
 router.post('/delete', (req, res, next) => {
@@ -6044,7 +6043,7 @@ router.get('/query', function(req, res, next) {
 
 
 
-// add cityName mangoDB database 
+// add cityName mangoDB database
 
 router.post('/queryCityName', function(req, res, next) {
 	let data = req.body
@@ -6053,7 +6052,7 @@ router.post('/queryCityName', function(req, res, next) {
 		method: 'GET',
 		url: 'http://127.0.0.1:3000/api/citiesApi'
 	};
-	
+
 
 	axios.request(options).then(function(response) {
 		//console.log(response.data);
@@ -6062,16 +6061,16 @@ router.post('/queryCityName', function(req, res, next) {
 		//console.error(error);
 		res.json(error)
 	});
-	
+
 });
 
 router.post('/edit', (req, res, next) => {
 	// console.log("===============")
 	// console.log(req.body)
 	let cityName = {
-		// update result 
+		// update result
 		$set: req.body
-		
+
 	}
 	console.log(req.body)
 	// let newStudent = [{
